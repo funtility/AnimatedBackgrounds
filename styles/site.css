@@ -7,20 +7,33 @@
 body {
     display: grid;
     grid-template-rows: auto auto auto;
+    background-color: #CCC;
+}
+
+.hide {
+    display: none;
 }
 
 /*#region Header*/
 
 header {
     display: grid;
-    background-color: rgba(200,220,255,.2);
-    border-bottom: solid 4px rgba(0,0,0,.02);
-    padding-right: 20px;
+    /* background: linear-gradient(270deg, rgb(120,200,280), rgb(255,255,255) 100%);     */
+    background: rgb(64,64,64);
+    /* border-bottom: solid 3px rgba(100,120,155,.2); */    
+    border-bottom: solid 3px black;
+    padding: 10px 20px;
+}
+
+header > h2 {
+    color: #DDD;
+    text-shadow: -1px 2px 0 black;
 }
 
 header > a > img {
-    height: 42px;
-    margin: 7px 20px;
+    height: 40px;
+    margin-right: 20px;
+    float: left;
 }
 
 header > h2 {
@@ -52,6 +65,144 @@ header > h2 {
         white-space: normal;
         text-align: center;
     }
+}
+
+/*#endregion*/
+
+/*#region Main*/
+
+main {
+    display: grid;
+    grid-template-columns: minmax(350px,auto) 1fr;
+    grid-template-areas: "ctrl anim" "json anim";
+}
+
+.ctrl {
+    grid-area: ctrl;
+}
+
+.json {
+    grid-area: json;
+}
+
+.anim {
+    grid-area: anim;
+    resize: both;
+    overflow: scroll;
+}
+
+select {
+    padding: 3px;
+    border-radius: 4px;
+}
+
+select:focus {
+    outline: none;
+    border-color: rgb(0,120,175);
+}
+
+.chevron {
+    float: right;
+}
+
+.chevron::before {
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	left: 0.15em;
+	position: relative;
+	top: 0.15em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.45em;
+}
+
+.chevron.right:before {
+	left: 0;
+	transform: rotate(45deg);
+}
+
+.chevron.bottom:before {
+	top: 0;
+	transform: rotate(135deg);
+}
+
+.target-select {
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: -8px;
+}
+
+.target-select > label {
+    margin: 2px;
+}
+
+.control-box {
+    background-color: white;
+    margin: 20px;
+    border: solid black 3px;
+    border-radius: 18px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,.2);
+    /* width: 400px; */
+}
+
+.control-box-label {
+    padding: 20px;
+}
+
+.control-box-label > #toggle-a {
+    padding-top: 3px;
+}
+
+.control-box-label > #toggle-b {
+    padding-top: 5px;
+    margin-top: -20px;
+}
+
+.control-box-content {
+    border-top: solid 2px #222;
+    padding: 20px;
+}
+
+.control-sub-section {
+    line-height: 2em;
+    border-radius: 6px;
+    border: solid 1px #999;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.control-item {
+    line-height: normal;
+}
+
+.control-item > input {
+    float: right;
+    border-radius: 3px;
+    background-color: #EEE;
+    border-style: none;
+    padding: 2px 2px 2px 4px;
+	max-width: 115px;
+}
+
+.control-item > input:focus {
+    outline-color: rgb(0,120,175);
+}
+
+label {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.fun-bg-canvas {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 /*#endregion*/

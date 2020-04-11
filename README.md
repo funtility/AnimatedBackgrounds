@@ -1,22 +1,47 @@
-# Funtility Subdomain
+# Fun Javascript Canvas Animations
 
-The purpose of this template is to provide an easy to implement project starter for a basic HTML, CSS, and Javascript web site. The inspiration behind this is to create fun projects with completely open code for anyone to learn from or use in their own projects.
+Free to use javascript animations. Visit our [settings tool](http://javascriptanimations.funtility.com) to customize the animation and generate the settings JSON to instantiate the animation.
 
-This template also includes unused, commented, code designed for creating a PWA (Progressive Web Application). More info about creating a PWA can be found here. [A Beginner's Guide To Progressive Web Apps](https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/a)
+## How To Use One Of Our Animations On Your Site
 
-## Getting Started
+1. From this repository, download the [canvasAnimations.js](https://github.com/funtility/JavascriptCanvasAnimations/tree/master/scripts). And save it into your project.
 
-Download the zip, extract the contents, and begin building your site out from there. Don't forget to update the readme file with your own content if you intend to create a repository for your project.
+2. Add the script tag in the header of your site. Change the path to where you saved the canvasAnimations.js as needed.
+
+```
+<script src="./scripts/canvasAnimations.js"></script>
+```
+
+3. Add a script tag after the body of your HTML to initialize the animation
+
+```
+<script>
+    document.onload = funtilityCanvasAnimation();
+</script>
+```
+
+4. Pass the settings JSON into the funtilityCanvasAnimation() function using the settings JSON created on out [settings tool]((http://javascriptanimations.funtility.com)). Or you may use the defaults by passing in only the minimum setting JSON which specifies the animation class you selected to display.
+
+```
+<script>
+    document.onload = funtilityCanvasAnimation({
+        "class": "Fluctuating_Hexagons"
+        });
+</script>
+```
+
+
+# Other Information
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/funtility/FuntilitySubdomain/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/funtility/JavascriptCanvasAnimations/tags). 
 
 ## Authors
 
 * **Nathan Hering** - [LinkedIn](https://www.linkedin.com/in/nathanhering/)
 
-See also the list of [contributors](https://github.com/funtility/FuntilitySubdomain/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/funtility/AnimatedBackgrounds/contributors) who participated in this project.
 
 ## License
 
