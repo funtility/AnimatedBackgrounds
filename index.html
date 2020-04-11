@@ -1,30 +1,64 @@
 <!DOCTYPE htlm>
 <html lang="en">
     <head>
-        <title>Funtility Template</title>
+        <title>Javascript Canvas Animations</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./images/PWA/launcher-icon-48.png" type="image/x-icon" />
         <link async rel="stylesheet" href="./styles/site.css">
-        <!-- <link rel="manifest" href="./manifest.json"> -->
-        <!-- <script src="./scripts/pwa.js"></script> -->
+        <script src="./scripts/canvasAnimations.js"></script>
+        <script src="./scripts/ui.js"></script>
     </head>
     <body>
-        <header class="header-wide">
+        <header>
             <a href="http:funtility.com" title="Funtility Home">
-                <img src="images/Logo_Full.svg">
+                <img src="images/LogoRoundBevel_512.png">
             </a>
             <h2>
-                This is the title of the page
+                Javascript Canvas Animations
             </h2>
         </header>
         <main>
-
+            <div>
+                <div class="control-box ctrl">
+                    <div class="control-box-label">
+                        <select id="classSelector">
+                            <option value="">-- Select --</option>
+                        </select>
+                        <label for="classSelector"> Animation</label>
+                        <span id="toggle-a" class="chevron right"></span>
+                        <div class="target-select">
+                            Target:
+                            <input type="radio" id="background" name="animTarget" value="background" >
+                            <label for="background">Background</label>
+                            <input type="radio" id="frame" name="animTarget" value="frame" checked>
+                            <label for="frame">Frame</label>
+                        </div>
+                    </div>
+                    <div id="controlSection" class="control-box-content hide">
+                        Select an animation to begin.
+                    </div>
+                </div>
+                <div class="control-box json">
+                    <div class="control-box-label">
+                        <h4>Settings JSON</h3>
+                        <span id="toggle-b" class="chevron right"></span>
+                    </div>
+                    <div id="json" class="control-box-content hide">
+                        Select an animation to begin.
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="control-box anim" id="funAnimation"></div> -->
+            <div class="control-box anim" id="funAnimation" data-target="frame" name="animTargetEle"></div>
         </main>
-        <footer>
-
-        </footer>
+        <div class="fun-bg-canvas hide" data-target="background" name="animTargetEle"></div>
     </body>
     <script>
+        // document.onload = funtilityCanvasAnimation({
+        // "class": "Fluctuating_Hexagons"
+        // });
         
+        setupUI();
     </script>
 </html>
