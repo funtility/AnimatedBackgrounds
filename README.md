@@ -1,6 +1,6 @@
 # Fun Javascript Canvas Animations
 
-Free to use javascript animations. Visit our [settings tool](http://javascriptanimations.funtility.com) to customize the animation and generate the settings JSON to instantiate the animation.
+Free to use javascript animations. Visit our [settings tool](http://jscanvasanim.funtility.com) to customize the animation and generate the settings JSON to instantiate the animation.
 
 ## How To Use One Of Our Animations On Your Site
 
