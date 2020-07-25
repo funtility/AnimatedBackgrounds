@@ -36,12 +36,12 @@ class Fluctuating_Hexagons {
         // These are all the settings you can customize.
         // Each of them has been provided a default value to 
         // use if none is specified in the settings object.
-        this.backgroundColor = settings.hasOwnProperty("backgroundColor") ? settings.backgroundColor : "rgb(255,255,255)";
-        this.hexagonStyle = settings.hasOwnProperty("hexagonStyle") ? settings.hexagonStyle : { radius: 14, gap: 1, red: 10, green: 50, blue: 90, alpha: .03};
-        this.affectorCount = settings.hasOwnProperty("affectorCount") ? settings.affectorCount : { max: 15, min: 10 };
-        this.affectorRadiusPercent = settings.hasOwnProperty("affectorRadiusPercent") ? settings.affectorRadiusPercent : { max: .75, min: .5 };
+        this.backgroundColor = settings.hasOwnProperty("backgroundColor") ? settings.backgroundColor : "rgb(20,20,20)";
+        this.hexagonStyle = settings.hasOwnProperty("hexagonStyle") ? settings.hexagonStyle : { radius: 20, gap: -1, red: 0, green: 50, blue: 90, alpha: .1};
+        this.affectorCount = settings.hasOwnProperty("affectorCount") ? settings.affectorCount : { max: 12, min: 10 };
+        this.affectorRadiusPercent = settings.hasOwnProperty("affectorRadiusPercent") ? settings.affectorRadiusPercent : { max: .5, min: .4 };
         this.affectorSpeedRange = settings.hasOwnProperty("affectorSpeedRange") ? settings.affectorSpeedRange : { max: 30, min: 15 };
-        this.affectorMaxAffect = settings.hasOwnProperty("affectorMaxAffect") ? settings.affectorMaxAffect : { radius: .2, alpha: 2 };
+        this.affectorMaxAffect = settings.hasOwnProperty("affectorMaxAffect") ? settings.affectorMaxAffect : { radius: 4, alpha: 20 };
         
         // Non-customizable properties.
         this.hexagonArray = [];
