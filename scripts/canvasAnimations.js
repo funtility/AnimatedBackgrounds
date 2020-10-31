@@ -24,6 +24,82 @@ var funtilityCanvasAnimation = function (animSettings) {
     new AnimationClasses[animSettings.class](animSettings);
 };
 
+class Template {
+    constructor(settings) {
+
+        // These are the elements that were created in NOTE 2
+        // of the funtilityCanvasAnimation function.
+        this.targetId = settings.targetId;
+        this.targetElement = settings.targetElement;
+        this.canvas = settings.canvas;
+        
+        // These are all the settings you can customize.
+        // Each of them has been provided a default value to 
+        // use if none is specified in the settings object.
+        this.backgroundColor = settings.hasOwnProperty("backgroundColor") ? settings.backgroundColor : "rgb(20,20,20)";
+        // Add any other settings here
+        
+        // Non-customizable properties.
+        this.objectArray = [];
+
+        
+        // Hook into the resize event of the window.
+        let obj = this;
+        window.addEventListener('resize', obj.resizeCanvas());
+        // Set up the initial drawing of the animation
+        this.resizeCanvas();
+        // Begin the animation cycle.
+        this.intervalId = setInterval(function() { obj.drawBackground() }, 75);
+    }
+
+    getSettings() {
+        return {
+            class: "Template",
+            backgroundColor: this.backgroundColor,
+            // Add all the other settings here to return
+        }
+    }
+
+    resizeCanvas() {
+        this.targetElement = document.getElementById(this.targetId);
+        this.canvasWidth = this.targetElement.clientWidth;
+        this.canvasHeight = this.targetElement.clientHeight;
+        this.canvas = document.getElementById("animCanvas");
+        this.ctx = this.canvas.getContext('2d');
+        this.canvas.setAttribute('width', this.canvasWidth);
+        this.canvas.setAttribute('height', this.canvasHeight);
+
+        // call functions that are used to generate the initial state of the animation
+        this.newObjectArray();
+    }
+
+    newObjectArray() {
+        var newArray = [];
+        // add logic for generating the array
+        this.objectArray = newArray;
+    }
+
+    drawBackground() {
+        this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+        this.ctx.fillStyle = this.backgroundColor;
+        this.ctx.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
+        // Call function(s) that are used to update the state of the animation
+        this.drawObjectArray();
+    }
+
+    drawObjectArray() {
+        var objectCount = this.objectArray.length;
+        var object = {  };
+        for (var hex = 0; hex < objectCount; hex++) {
+            this.drawObject();
+        }
+    }
+
+    drawObject() {
+        // use this.ctx for drawing the object
+    }
+}
+
 class Fluctuating_Hexagons {
     constructor(settings) {
 
@@ -258,6 +334,83 @@ class Fluctuating_Hexagons {
     }
 }
 
+class Satellites {
+    constructor(settings) {
+
+        // These are the elements that were created in NOTE 2
+        // of the funtilityCanvasAnimation function.
+        this.targetId = settings.targetId;
+        this.targetElement = settings.targetElement;
+        this.canvas = settings.canvas;
+        
+        // These are all the settings you can customize.
+        // Each of them has been provided a default value to 
+        // use if none is specified in the settings object.
+        this.backgroundColor = settings.hasOwnProperty("backgroundColor") ? settings.backgroundColor : "rgb(20,20,20)";
+        // Add any other settings here
+        
+        // Non-customizable properties.
+        this.objectArray = [];
+
+        
+        // Hook into the resize event of the window.
+        let obj = this;
+        window.addEventListener('resize', obj.resizeCanvas());
+        // Set up the initial drawing of the animation
+        this.resizeCanvas();
+        // Begin the animation cycle.
+        this.intervalId = setInterval(function() { obj.drawBackground() }, 75);
+    }
+
+    getSettings() {
+        return {
+            class: "Template",
+            backgroundColor: this.backgroundColor,
+            // Add all the other settings here to return
+        }
+    }
+
+    resizeCanvas() {
+        this.targetElement = document.getElementById(this.targetId);
+        this.canvasWidth = this.targetElement.clientWidth;
+        this.canvasHeight = this.targetElement.clientHeight;
+        this.canvas = document.getElementById("animCanvas");
+        this.ctx = this.canvas.getContext('2d');
+        this.canvas.setAttribute('width', this.canvasWidth);
+        this.canvas.setAttribute('height', this.canvasHeight);
+
+        // call functions that are used to generate the initial state of the animation
+        this.newObjectArray();
+    }
+
+    newObjectArray() {
+        var newArray = [];
+        // add logic for generating the array
+        this.objectArray = newArray;
+    }
+
+    drawBackground() {
+        this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+        this.ctx.fillStyle = this.backgroundColor;
+        this.ctx.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
+        // Call function(s) that are used to update the state of the animation
+        this.drawObjectArray();
+    }
+
+    drawObjectArray() {
+        var objectCount = this.objectArray.length;
+        var object = {  };
+        for (var hex = 0; hex < objectCount; hex++) {
+            this.drawObject();
+        }
+    }
+
+    drawObject() {
+        // use this.ctx for drawing the object
+    }
+}
+
 const AnimationClasses = {
-    "Fluctuating_Hexagons": Fluctuating_Hexagons
+    "Fluctuating_Hexagons": Fluctuating_Hexagons,
+    "Satellites": Satellites,
 }

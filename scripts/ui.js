@@ -165,7 +165,7 @@ var numberControl = function(key, value, parentKey){
     lbl.innerText = key;
     let num = document.createElement("input");
     num.setAttribute("type","number");
-    num.setAttribute("step",.01);
+    num.setAttribute("step",.5);
     num.value = value;
     num.addEventListener('change', function(){
         updateCanvasAnimation(parentKey,key,parseFloat(this.value));
