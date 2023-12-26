@@ -1,4 +1,4 @@
-var funtilityCanvasAnimation = function (animSettings) {
+let funtilityCanvasAnimation = function (animSettings) {
     // NOTE 1
     // This is an optional property. If you want to use a different
     // id for the element where the animation is to be rendered then add
@@ -23,6 +23,15 @@ var funtilityCanvasAnimation = function (animSettings) {
     // this code.
     new AnimationClasses[animSettings.class](animSettings);
 };
+
+//region start
+
+let fiftyFifty = function() {
+    return Math.round(Math.random()) > 0;
+}
+
+
+//endregion
 
 class Template {
     constructor(settings) {
@@ -347,6 +356,7 @@ class Satellites {
         // Each of them has been provided a default value to 
         // use if none is specified in the settings object.
         this.backgroundColor = settings.hasOwnProperty("backgroundColor") ? settings.backgroundColor : "rgb(20,20,20)";
+        this.numberOfSatellites = settings.hasOwnProperty("numberOfSatellites") ? settings.numberOfSatellites : 20;
         // Add any other settings here
         
         // Non-customizable properties.
@@ -364,9 +374,10 @@ class Satellites {
 
     getSettings() {
         return {
-            class: "Template",
+            class: "Satellites",
             backgroundColor: this.backgroundColor,
             // Add all the other settings here to return
+            numberOfSatellites: this.numberOfSatellites,
         }
     }
 
@@ -379,14 +390,23 @@ class Satellites {
         this.canvas.setAttribute('width', this.canvasWidth);
         this.canvas.setAttribute('height', this.canvasHeight);
 
-        // call functions that are used to generate the initial state of the animation
+        // call function(s) that are used to generate the initial state of the animation
         this.newObjectArray();
     }
 
     newObjectArray() {
         var newArray = [];
         // add logic for generating the array
+        for (let i = 0; i < this.numberOfSatellites; i++)
+        {
+
+        }
         this.objectArray = newArray;
+    }
+
+    newSatellite() {
+        // find a point 50% the width of the canvas outside of the canvas
+        // find a point 50% of the height of the canvas outside of the canvas
     }
 
     drawBackground() {
